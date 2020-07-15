@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+
+namespace SmallestAndBiggest
+{
+    class SmallestAndBiggest
+    {
+        static void Main(string[] args)
+        {
+            bool tryParse = false;
+            int counter = 0, n, min = 0, max = 0, num;
+
+            do
+            {
+
+                Console.Write("Enter how many number to have: ");
+                tryParse = int.TryParse(Console.ReadLine(), out n);
+                if (tryParse == true)
+                {
+                    counter++;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+
+            } while (counter < n && tryParse == false);
+
+            for(int i = 0; i < n; i++)
+            {
+                do
+                {
+                    Console.Write("Enter a number: ");
+                    tryParse = int.TryParse(Console.ReadLine(), out num);
+                    if(tryParse == true)
+                    {
+                        break;
+                    } else
+                    {
+                        Console.WriteLine("Try again!");
+                    }
+                } while (tryParse == false);
+
+                if(i == 0)
+                {
+                    min = max = num;
+                } else
+                {
+                    if(min > num)
+                    {
+                        min = num;
+                    }
+                    if(max < num)
+                    {
+                        max = num;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Min = {min} | Max = {max}");
+        }
+    }
+}
