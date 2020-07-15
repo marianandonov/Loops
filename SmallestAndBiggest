@@ -8,23 +8,24 @@ namespace SmallestAndBiggest
         static void Main(string[] args)
         {
             bool tryParse = false;
-            int counter = 0, n, min = 0, max = 0, num;
+            int min = 0, max = 0, num, n;
 
             do
             {
 
                 Console.Write("Enter how many number to have: ");
                 tryParse = int.TryParse(Console.ReadLine(), out n);
-                if (tryParse == true)
+                if (tryParse == true && n >= 0)
                 {
-                    counter++;
+                    break;
                 }
                 else
                 {
                     Console.WriteLine("Try again!");
+                    tryParse = false;
                 }
 
-            } while (counter < n && tryParse == false);
+            } while (tryParse == false);
 
             for(int i = 0; i < n; i++)
             {
@@ -41,7 +42,7 @@ namespace SmallestAndBiggest
                     }
                 } while (tryParse == false);
 
-                if(i == 0)
+                if(num == 0)
                 {
                     min = max = num;
                 } else
