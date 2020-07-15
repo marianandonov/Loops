@@ -1,0 +1,35 @@
+using System;
+
+namespace FromOneToNExtra
+{
+    class FromOneToNExtra
+    {
+        static void Main(string[] args)
+        {
+            bool tryParse = false;
+            int n;
+
+            do
+            {
+                Console.Write("Enter n: ");
+                tryParse = int.TryParse(Console.ReadLine(), out n);
+                if (tryParse == true)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            for (int i = 1; i <= n; i++)
+            {
+                if(!(i % 7 == 0 && i % 3 == 0))
+                {
+                    Console.Write($"{i} ");
+                }
+            }
+        }
+    }
+}
