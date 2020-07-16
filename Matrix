@@ -1,0 +1,63 @@
+using System;
+
+namespace Matrix
+{
+    class Matrix
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0;
+            bool check = false;
+
+            do
+            {
+                n = tryParse(n);
+                if(n < 20 && n > 0)
+                {
+                    check = true;
+                } else
+                {
+                    Console.WriteLine("N has to be lower than 20 and bigger than 0!");
+                }
+            } while (check == false);
+
+            for(int row = 1; row <= n; row++)
+            {
+                for(int col = row; col <= (row + n) - 1; col++)
+                {
+                    if(col <= 9)
+                    {
+                        Console.Write(" " + col + " ");
+                    } else
+                    {
+                        Console.Write(col + " ");
+                    }
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        static int tryParse(int num)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter a value: ");
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
