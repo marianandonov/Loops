@@ -1,0 +1,52 @@
+using System;
+using System.Numerics;
+
+namespace ZeroOfFactoriel
+{
+    class ZeroOfFactoriel
+    {
+        static void Main(string[] args)
+        {
+            ulong n = 0; 
+            int counter = 0;
+            n = tryParse(n);
+
+            for (int i = (int)(n - 1); i > 0; i--)
+            {
+                n *= (ulong)i;
+            }
+
+            Console.WriteLine(n);
+
+            do
+            {
+                n /= 10;
+                counter++;
+            } while (n % 10 == 0);
+
+            Console.Write("Numbers of zeroes: " + counter);
+        }
+
+        static ulong tryParse(ulong num)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter a value: ");
+                tryParse = ulong.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+
+    }
+}
