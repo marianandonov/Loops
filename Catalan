@@ -1,0 +1,57 @@
+using System;
+
+namespace Catalan
+{
+    class Catalan
+    {
+        static void Main(string[] args)
+        {
+            int n = 0;
+
+            n = tryParse(n);
+
+            int fact2N = 2 * n, factNplus1 = n + 1;
+
+            for (int i = fact2N - 1; i > 0; i--)
+            {
+                fact2N *= i;
+            }
+
+            for (int i = factNplus1 - 1; i > 0; i--)
+            {
+                factNplus1 *= i;
+            }
+
+            for (int i = n - 1; i > 0; i--)
+            {
+                n *= i;
+            }
+
+            int result = fact2N / (factNplus1 * n);
+            Console.WriteLine($"Result = {result}");
+
+        }
+
+        static int tryParse(int num)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter a value: ");
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+
+    }
+}
