@@ -1,0 +1,105 @@
+using System;
+using System.Diagnostics.Contracts;
+using System.Timers;
+
+namespace DeckOfCards
+{
+    class DeckOfCards
+    {
+        static void Main(string[] args)
+        {
+
+            string spades = "Spades";
+            string hearts = "Hearts";
+            string diamonds = "Diamonds";
+            string clovers = "Clovers";
+
+            for(int i = 0; i < 4; i++)
+            {
+                if(i == 0)
+                {
+                    printAllFromType(spades);
+                } else if(i == 1)
+                {
+                    printAllFromType(hearts);
+                } else if(i == 2)
+                {
+                    printAllFromType(diamonds);
+                } else
+                {
+                    printAllFromType(clovers);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void printCard(string card, string type, int num)
+        {
+            Console.WriteLine($"{num}.{card} of {type}");
+        }
+
+        static void printAllFromType(string type)
+        {
+            string ace = "Ace";
+            string two = "Two";
+            string three = "Three";
+            string four = "Four";
+            string five = "Five";
+            string six = "Six";
+            string seven = "Seven";
+            string eight = "Eight";
+            string nine = "Nine";
+            string ten = "Ten";
+            string jack = "Jack";
+            string queen = "Queen";
+            string king = "King";
+
+            for (int i = 1; i <= 13; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        printCard(ace, type, i);
+                        break;
+                    case 2:
+                        printCard(two, type, i);
+                        break;
+                    case 3:
+                        printCard(three, type, i);
+                        break;
+                    case 4:
+                        printCard(four, type, i);
+                        break;
+                    case 5:
+                        printCard(five, type, i);
+                        break;
+                    case 6:
+                        printCard(six, type, i);
+                        break;
+                    case 7:
+                        printCard(seven, type, i);
+                        break;
+                    case 8:
+                        printCard(eight, type, i);
+                        break;
+                    case 9:
+                        printCard(nine, type, i);
+                        break;
+                    case 10:
+                        printCard(ten, type, i);
+                        break;
+                    case 11:
+                        printCard(jack, type, i);
+                        break;
+                    case 12:
+                        printCard(queen, type, i);
+                        break;
+                    case 13:
+                        printCard(king, type, i);
+                        break;
+                }
+            }
+        }
+
+    }
+}
