@@ -1,0 +1,36 @@
+using System;
+
+namespace Fibonacci
+{
+    class FibonacciN
+    {
+        static void Main(string[] args)
+        {
+            int a = 0, b = 1, c = 0, n;
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter the value of n: ");
+                tryParse = int.TryParse(Console.ReadLine(), out n);
+                if(tryParse == true)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            Console.Write("{0} {1}", a, b);
+            for (int i = 2; i < n; i++)
+            {
+                c = a + b;
+                Console.Write(" {0}", c);
+                a = b;
+                b = c;
+            }
+        }
+    }
+}
