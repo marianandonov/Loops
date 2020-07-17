@@ -1,0 +1,58 @@
+using System;
+
+namespace BinaryTenToHex
+{
+    class BinaryTenToHex
+    {
+        static void Main(string[] args)
+        {
+            int n = 0;
+            n = tryParse(n);
+            char[] letters = new char[100];
+
+            int i = 0;
+            while (n != 0)
+            {
+                int temp = 0;
+                temp = n % 16;
+                if (temp < 10)
+                {
+                    letters[i] = (char)(temp + 48);
+                    i++;
+                }
+                else
+                {
+                    letters[i] = (char)(temp + 55);
+                    i++;
+                }
+                n = n / 16;
+            }
+
+            for (int j = i - 1; j >= 0; j--) 
+            {
+                Console.Write(letters[j]);
+            }
+        }
+
+        static int tryParse(int num)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter a value: ");
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
