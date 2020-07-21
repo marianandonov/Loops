@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+
+namespace Random
+{
+    class Random
+    {
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int temp, rndNum, n = 0;
+            Console.Write("Enter number: ");
+            n = tryParse(n);
+            List<int> list = new List<int>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] = i;
+            }
+
+            foreach (int i in list)
+            {
+                rndNum = rnd.Next(0, n);
+                temp = list[i];
+                list[i] = list[rndNum];
+                list[rndNum] = temp;
+            }
+
+            foreach (int i in list)
+            {
+                Console.WriteLine(list[i]);
+            }
+        }
+
+        static int tryParse(int num)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write("Enter a value: ");
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
